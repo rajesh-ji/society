@@ -1,5 +1,5 @@
 <?php include('include/header.php');
-
+// $query = mysqli_query($conn, "select *from areas");
 ?>
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
@@ -30,6 +30,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+                            <?php $query = mysqli_query($conn, "select *from sub_areas"); ?>
                             <div class="card-body">
                                 <h4 class="card-title">List Sub Area</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
@@ -37,55 +38,43 @@
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Sub Area Name</th>
                                                 <th>Area Image</th>
                                                 <th>Parent Area Name</th>
+                                                <th>Area Zip</th>
                                                 <th>Details</th>
-                                                <th>Status</th>
-                                                <!-- 
-                                                <th>Salary</th> -->
+                                                <!-- <th>Status</th> -->
+                                              
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Area Name</th>
                                                 <th>Area Image</th>
-                                                 <th>Parent Area Name</th>
+                                                <th>Parent Area Name</th>
+                                                <th>Area Zip</th>
                                                 <th>Details</th>
-                                                <th>Status</th>
-                                                <!-- 
-                                                <th>Salary</th> -->
+                                                <!-- <th>Status</th> -->
+                                               
                                             </tr>
                                         </tfoot>
                                         <tbody>
+                                            <?php while ($row = mysqli_fetch_assoc($query)) { ?>
+                                                                                         
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                               <!--  <td>2011/04/25</td>
-                                                <td>$320,800</td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>System Architect</td>
-                                                <td>63</td>
-                                               <!--  <td>2011/07/25</td>
-                                                <td>$170,750</td> -->
-                                            </tr>
-                                            <tr>
-                                                <td>Ashton Cox</td>
-                                                <td>Junior Technical Author</td>
-                                                <td>San Francisco</td>
-                                                <td>System Architect</td>
-                                                <td>66</td>
-                                              <!--   <td>2009/01/12</td>
-                                                <td>$86,000</td> -->
+                                                <td><?php echo $row['id'];?></td>
+                                                <td><?php echo $row['sub_areasname'];?></td>
+                                                <td><img src="images/<?php echo $row['areas_icon'] ?>"  Width="30px" height="30px"></td>
+                                                <td><?php echo $row['area_id'];?></td>                   
+                                                <td><?php echo $row['zipcode'];?></td>
+                                                <td><?php echo $row['area_details'];?></td>
+                                                <!-- <td><?php echo $row[''];?></td> -->
+                                                
                                             </tr>
                                            
+                                           <?php   } ?>
                                         </tbody>
                                     </table>
                                 </div>

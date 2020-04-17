@@ -1,31 +1,38 @@
-<?php include('include/header.php');
-
-?>
+<?php include('include/header.php'); ?>
        
         <div class="page-wrapper">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card card-body">
                             <h4 class="card-title">Create Area</h4>                          
-                            <form class="form-horizontal m-t-40">                                                               
+                            <form class="form-horizontal m-t-40" action="create_area.php" method="POST" enctype="multipart/form-data">                                                               
                                 <div class="form-group">
                                     <label>Area Name</label>
-                                    <input type="text" class="form-control" placeholder="area name..">
+                                    <input type="text" class="form-control" name="areasname" placeholder="area name.." required="">
                                 </div>
                                  <div class="form-group">
                                     <label>Image upload</label>
-                                    <input type="file" class="form-control" id="exampleInputFile" aria-describedby="fileHelp">
+                                    <input type="file" class="form-control" name="areas_icon" id="exampleInputFile" aria-describedby="fileHelp" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Area Full Details</label>
-                                    <textarea class="form-control" rows="5"></textarea>
+                                    <textarea class="form-control" name="area_details" rows="5" required=""></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Area Zip</label>
+                                    <input type="text" class="form-control" name="areaszip" placeholder="area zip.." required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Area Status</label>
-                                    <input type="text" class="form-control" placeholder="area status..">
+                                    <!-- <input type="text" class="form-control" placeholder="area status.."> -->
+                                    <select class="form-control" >
+                                        <option value="0">select</option>
+                                        <option value="1">active</option>
+                                        <option value="2">inactive</option>
+                                    </select>
                                 </div>
-                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
-                                <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                <button type="submit" name ="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                                <a class="btn btn-inverse waves-effect waves-light" href="index.php">Cancel</a> 
                             </form>
                         </div>
                     </div>
@@ -33,58 +40,61 @@
         </div>
                 <!-- Row -->
                
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                </div>
             <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
             </div>
          </div>
      <?php include('include/footer.php');?>
+
+     <?php
+        if(isset($_POST['submit'])){
+            extract($_POST);
+            print_r($_POST);
+
+        $areasname =  $_POST['areasname'];
+        $checking = mysqli_query($conn, "select * from areas where areasname = '$areasname'");
+        $countResult = mysqli_num_rows($checking);
+         if($countResult>0){
+            echo "<script>alert('This areasname already exists, please try new one');</script>";
+        }else{
+
+                                if(isset($_FILES['areas_icon'])){
+                                  $errors= array();
+                                  $areas_icon = $_FILES['areas_icon']['name'];
+                                  $file_size =$_FILES['areas_icon']['size'];
+                                  $file_tmp =$_FILES['areas_icon']['tmp_name'];
+                                  $file_type=$_FILES['areas_icon']['type'];
+                                  $file_ext=strtolower(end(explode('.',$_FILES['areas_icon']['name'])));
+                                  
+                                  $extensions= array("jpeg","jpg","png");
+                                  
+                                  if(in_array($file_ext,$extensions)=== false){
+                                     $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+                                  }
+                                  
+                                  if($file_size > 2097152){
+                                     $errors[]='File size must be excately 2 MB';
+                                  }
+                                  
+                                  if(empty($errors)==true){
+                                     move_uploaded_file($file_tmp,"images/".$areas_icon);
+                                     echo "Success";
+                                  }else{
+                                     print_r($errors);
+                                  }
+                               }
+                               else{
+                                   $areas_icon = '';
+                               }
+                               // echo $add_area = mysqli_query($conn, "INSERT INTO `areas`( `areasname`, `areas_icon`, `area_details`, `areas_status`) VALUES (`areasname`,`areas_icon`,`area_details`,`1`)");
+
+       $query = "INSERT INTO `areas`( `areasname`, `areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ('$areasname', '$areas_icon', '$area_details','$areaszip','1')";
+        $result = mysqli_query($conn, $query);
+
+         if($result){
+                echo "<script>alert('successfully Added');</script>";
+            }else{
+               echo "<script>alert('error');</script>";
+            }
+        }
+}
+?>

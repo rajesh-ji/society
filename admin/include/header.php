@@ -1,3 +1,4 @@
+<?php include('include/config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,23 +115,63 @@
                                 <li><a href="list-sub-area.php">List Sub Area</a></li>                                
                             </ul>
                         </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Users</span></a>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Users</span></a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li><a href="create_user.php">Create Users</a></li>
+                                <li><a href="list-user.php">List Users</a></li>      
+                            </ul>
                         </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Advertisement</span></a>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Advertisement</span></a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Create  Advertisement Pages</a></li>
+                                <li><a href="#">List Advertisement pages</a></li>
+                                <li><a href="#">Creat Advertisement</a></li>
+                                <li><a href="#">List All Advertisements</a></li>                                
+                            </ul>
                         </li>
-                        <li> <a href="#" class=" waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pages</span></a>                        
+                        <li> <a href="#" class="has-arrow waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pages</span></a> 
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Create Pages</a></li>
+                                <li><a href="#">List Pages</a></li>      
+                            </ul>                       
                         </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Events</span></a>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Events</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Creat Events Type</a></li>
+                                <li><a href="#">List All Events Type</a></li>
+                                <li><a href="#">Creat Events</a></li>
+                                <li><a href="#">List All Events</a></li>                                
+                            </ul>
                         </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Blood Bank</span></a>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Blood Bank</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Blood Donwer</a></li>
+                                <li><a href="#">List all blood donwer</a></li>      
+                            </ul>  
+                        </li>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Contacts</span></a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Creat Contacts</a></li>
+                                <li><a href="#">List Contacts</a></li>      
+                            </ul>  
                             </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Contacts</span></a>
+                        <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Janganna</span></a>
+                             <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Janganana</a></li>
+                                <li><a href="#">List All Janganana</a></li>      
+                            </ul>  
                             </li>
-                        <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Janganna</span></a>
+                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Matrimonial</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Matrimonial</a></li>
+                                <li><a href="#">List Matrimonial</a></li>      
+                            </ul>  
                             </li>
-                         <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Matrimonial</span></a>
-                            </li>
-                         <li> <a href="#" class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Contacts</span></a>
+                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Contacts</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Creat Blogs</a></li>
+                                <li><a href="#">List Blogs</a></li>      
+                            </ul>  
                             </li>
                     </ul>
                 </nav>

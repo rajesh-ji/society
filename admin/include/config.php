@@ -2,7 +2,7 @@
 $servername = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'translator';
+$dbname = 'society';
 
 
 $conn = mysqli_connect($servername,$username,$password,$dbname);
@@ -10,3 +10,5 @@ $conn = mysqli_connect($servername,$username,$password,$dbname);
 if(!$conn){
     die("connection failed".mysqli_connect_error());
 }
+//session_start();
+?>
