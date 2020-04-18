@@ -25,8 +25,8 @@
                                 <div class="form-group">
                                     <label>Area Status</label>
                                     <!-- <input type="text" class="form-control" placeholder="area status.."> -->
-                                    <select class="form-control" >
-                                        <option value="0">select</option>
+                                    <select class="form-control" name="status" >
+                                        <option value="">select</option>
                                         <option value="1">active</option>
                                         <option value="2">inactive</option>
                                     </select>
@@ -87,7 +87,7 @@
                                }
                                // echo $add_area = mysqli_query($conn, "INSERT INTO `areas`( `areasname`, `areas_icon`, `area_details`, `areas_status`) VALUES (`areasname`,`areas_icon`,`area_details`,`1`)");
 
-       $query = "INSERT INTO `areas`( `areasname`, `areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ('$areasname', '$areas_icon', '$area_details','$areaszip','1')";
+       $query = "INSERT INTO `areas`( `areasname`, `areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ('$areasname', '$areas_icon', '$area_details','$areaszip','$status')";
         $result = mysqli_query($conn, $query);
 
          if($result){

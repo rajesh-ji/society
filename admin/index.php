@@ -12,7 +12,17 @@
                             <div class="row">
                             
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">201</h2>
+                                    <h2 class="font-light m-b-0">
+                                   <?php
+                                        // echo   $today_area = "SELECT count(*) as abc FROM areas where DATE(created) = DATE(NOW())";
+                                        $today_area = "SELECT count(*) as abc FROM areas where DATE(created) = DATE(NOW())";
+                                           $area_count = mysqli_query($conn,$today_area);
+                                           $row = mysqli_fetch_assoc($area_count);
+                                           $today_area_record = $row['abc'];
+                                            echo $today_area_record;
+
+                                           ?>
+                                    </h2>
                                     <h6 class="text-muted">Today Area</h6></div>
                             
                                 <!-- <div class="col text-right align-self-center">
@@ -28,7 +38,14 @@
                             <div class="row">
                                 
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">276</h2>
+                                    <h2 class="font-light m-b-0">
+                                    <?php
+                                    $qt = mysqli_query($conn,"SELECT count(*) as abc from advertisement");
+                                    $row = mysqli_fetch_assoc($qt);
+                                    $record = $row['abc'];
+                                    echo $record;
+                                    ?>
+                                    </h2>
                                     <h6 class="text-muted">Total Adv.</h6></div>
                                 
                                 <!-- <div class="col text-right align-self-center">
@@ -44,7 +61,17 @@
                             <div class="row">
                      
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">195</h2>
+                                    <h2 class="font-light m-b-0">
+                                         <?php
+                                        // echo   $today_area = "SELECT count(*) as abc FROM areas where DATE(created) = DATE(NOW())";
+                                        $today_area = "SELECT count(*) as abc FROM tbl_user where DATE(created) = DATE(NOW())";
+                                           $area_count = mysqli_query($conn,$today_area);
+                                           $row = mysqli_fetch_assoc($area_count);
+                                           $today_area_record = $row['abc'];
+                                            echo $today_area_record;
+
+                                           ?>
+                                    </h2>
                                     <h6 class="text-muted">Today Contacts</h6></div>
                      
                                <!--  <div class="col text-right ">
@@ -60,7 +87,14 @@
                             <div class="row">
                     
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">6870</h2>
+                                    <h2 class="font-light m-b-0">
+                                    <?php
+                                    $qt = mysqli_query($conn,"SELECT count(*) as abc from tbl_user");
+                                    $row = mysqli_fetch_assoc($qt);
+                                    $record = $row['abc'];
+                                    echo $record;
+                                    ?>
+                                    </h2>
                                     <h6 class="text-muted">Total People</h6></div>
                     
                                <!--  <div class="col text-right align-self-center">
@@ -79,7 +113,17 @@
                             <div class="row">
                             
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">324</h2>
+                                    <h2 class="font-light m-b-0">
+                                         <?php
+                                        // echo   $today_area = "SELECT count(*) as abc FROM areas where DATE(created) = DATE(NOW())";
+                                        $today_area = "SELECT count(*) as abc FROM event where DATE(created_at) = DATE(NOW())";
+                                           $area_count = mysqli_query($conn,$today_area);
+                                           $row = mysqli_fetch_assoc($area_count);
+                                           $today_area_record = $row['abc'];
+                                            echo $today_area_record;
+
+                                           ?>
+                                    </h2>
                                     <h6 class="text-muted">Today Events</h6></div>
                             
                                <!--  <div class="col text-right align-self-center">
@@ -95,7 +139,14 @@
                             <div class="row">
                                 
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">2376</h2>
+                                    <h2 class="font-light m-b-0">
+                                    <?php
+                                    $qt = mysqli_query($conn,"SELECT count(*) as abc from blood_doner");
+                                    $row = mysqli_fetch_assoc($qt);
+                                    $record = $row['abc'];
+                                    echo $record;
+                                    ?>
+                                    </h2>
                                     <h6 class="text-muted">Total Blood Dooner</h6></div>
                                 
                                <!--  <div class="col text-right align-self-center">

@@ -38,8 +38,8 @@
                                 <div class="form-group">
                                     <label>Area Status</label>
                                     <!-- <input type="text" class="form-control" placeholder="area status.."> -->
-                                    <select class="form-control" >
-                                        <option value="0">select</option>
+                                    <select class="form-control" name="status" >
+                                        <option value="">select</option>
                                         <option value="1">active</option>
                                         <option value="2">inactive</option>
                                     </select>
@@ -103,7 +103,7 @@
         
  // echo    $sql =  "INSERT INTO `sub_areas`(`area_name`,`sub_areasname`,`areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ($sub_areaname', '$parent_area','$areas_icon', '$area_details','$areazip',1')";
 
-       $query = "INSERT INTO `sub_areas`(`area_id`,`sub_areasname`,`areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ('$parent_area','$sub_areaname', '$areas_icon', '$area_details','$areazip','1')";
+       $query = "INSERT INTO `sub_areas`(`area_id`,`sub_areasname`,`areas_icon`, `area_details`,`zipcode`, `areas_status`) VALUES ('$parent_area','$sub_areaname', '$areas_icon', '$area_details','$areazip','$status')";
         $result = mysqli_query($conn, $query);
 
          if($result){
