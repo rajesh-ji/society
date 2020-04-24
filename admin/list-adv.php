@@ -32,6 +32,7 @@
                         <div class="card">
                             <?php
                                 $query = mysqli_query($conn,"select *from advertisement ");
+                                 $number =1;
                             ?> 
                             <div class="card-body">
                                 <h4 class="card-title">List Advetisement</h4>
@@ -52,7 +53,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                 <th>S.No</th>
+                                                <th>S.No</th>
                                                 <th>Name</th>
                                                 <th>Image</th>
                                                 <th>Type</th>
@@ -64,20 +65,20 @@
                                         </tfoot>
                                         <tbody>
                                            <?php while ($row=mysqli_fetch_assoc($query)) { ?>
-                                            <tr>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['adv_name'];?></td>        
-                                                <td><img src="images/<?php echo $row['adv_image'] ?>"  Width="30px" height="30px"></td>
-                                                <td><?php echo $row['adv_type']; ?></td>
-                                                <td><?php echo $row['adv_starttime']; ?></td>
-                                                <td><?php echo $row['adv_endtime']; ?></td>
-                                                <td><?php echo $row['status']; ?></td>
-                                                <td class="text-nowrap">
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                                    <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
-                                                </td>                               
+                                            <tr id="<?php echo $row['id'];?>">
+                                                <td><?php echo $number; ?></td>
+                                                <td data-target="adv_name"><?php echo $row['adv_name'];?></td>        
+                                                <td data-target="adv_image"><img src="images/<?php echo $row['adv_image'] ?>"  Width="30px" height="30px"></td>
+                                                <td data-target="adv_type"><?php echo $row['adv_type']; ?></td>
+                                                <td data-target="adv_starttime"><?php echo $row['adv_starttime']; ?></td>
+                                                <td data-target="adv_endtime"><?php echo $row['adv_endtime']; ?></td>
+                                                <td data-target="status"><?php echo $row['status']; ?></td>
+                                                 <td>
+                                                    <button type="submit" data-role="adv_update" data-id="<?php echo $row['id']?>"  class="btn btn-primary edit_area">Edit</button>
+                                                    <button type="submit"  delete_id="<?php echo $row['id']?>"  class="btn btn-danger delete_area">Delete</button>
+                                                </td>                          
                                             </tr>
-                                           <?php }?>
+                                           <?php $number++; }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -89,87 +90,68 @@
                 </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
+                
+            </div>
+           
+            <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
+           
+        </div>
+      
+    </div>
+   
+   <!-- modal -->
+         <div class="modal fade" id="advModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Edit / Update Ad. </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form enctype="multipart/form-data">
+                               
+                                <div class="form-group">
+                                    <label>Ad Name</label>
+                                    <input type="text" class="form-control" name="" id="adv_name" >
+                                </div>
+                                 <div class="form-group">
+                                    <label>Image upload</label>
+                                    <input type="file" class="form-control upload_image" name="adv_image" id="adv_image" aria-describedby="fileHelp">
+                                </div>
+                                 <div class="form-group">
+                                    <label>Ad Type</label>
+                                    <input type="text" class="form-control" name="" id="adv_type" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Ad Start Time</label>
+                                    <input type="date" class="form-control" name="" id="adv_starttime" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Ad End Time</label>
+                                    <input type="date" class="form-control" name="" id="adv_endtime" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Ad Status</label>
+                                    <input type="text" class="form-control" name="" id="status" >
+                                </div>
+                                    <input type="hidden" id="userId"  >
+                                    
+                            
+                        </div>
+                        <div class="modal-footer">                            
+                            <button type="submit" name="" id="save_adv" class="btn btn-primary">Update</button>
+                            <button type="submit" name="cancel" class="btn btn-danger" data-dismiss="modal">Close</button>
+                           <!--  <input type="hidden" name="" id="hidden_id"> -->
+                            </form>
+                        </div>
                         </div>
                     </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+                    </div>
+
     <?php include('include/footer.php');?>
+   <!-- end modal -->
     <!-- end - This is for export functionality only -->
     <script>
     $(document).ready(function() {
@@ -222,6 +204,92 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-</body>
 
-</html>
+    <script>
+        $(document).ready(function(){
+            // alert('ajax');
+            $(document).on('click','button[data-role=adv_update]',function(){
+                 // alert($(this).data('id'));
+                 //append values in input fields
+                var id = $(this).data('id');
+                var adv_name = $('#'+id).children('td[data-target=adv_name]').text();
+                var adv_image = $('#'+id).children('td[data-target=adv_image]').text();
+                var adv_type = $('#'+id).children('td[data-target=adv_type]').text();
+                var adv_starttime = $('#'+id).children('td[data-target=adv_starttime]').text();
+                var adv_endtime = $('#'+id).children('td[data-target=adv_endtime]').text();
+                var status = $('#'+id).children('td[data-target=status]').text();
+
+                $('#adv_name').val(adv_name);
+                $('#adv_image').html(adv_image);
+                $('#adv_type').val(adv_type);
+                $('#adv_starttime').val(adv_starttime);
+                $('#adv_endtime').val(adv_endtime);
+                $('#status').val(status);
+                $('#userId').val(id);
+                $('#advModal').modal('toggle');
+
+            })
+            // now create event to get data from  fields and updated in database
+              $('#save_adv').click(function(){
+                var id = $('#userId').val();
+                var adv_name = $('#adv_name').val();
+                var adv_image =$('#adv_image').val();
+                var adv_type = $('#adv_type').val();
+                var adv_starttime =$('#adv_starttime').val();
+                var adv_endtime =$('#adv_endtime').val();
+                var status =$('#status').val();
+
+                    $.ajax({
+                        url     :"adv_update.php",
+                        method  :"POST",
+                        data    :{
+                            mgs:'update',
+                            adv_name:adv_name,
+                            adv_image:adv_image,
+                            adv_type:adv_type,
+                            adv_starttime:adv_starttime,
+                            adv_endtime:adv_endtime,
+                            status:status,
+                            id:id
+                        },
+                        success:function(response){
+                            
+                            //now update user record in table
+
+                            $('#'+id).children('td[data-target=adv_name]').text(adv_name);
+                            $('#'+id).children('td[data-target=adv_image]').text(adv_image);
+                            $('#'+id).children('td[data-target=adv_type]').text(adv_type);
+                            $('#'+id).children('td[data-target=adv_starttime]').text(adv_starttime);
+                            $('#'+id).children('td[data-target=adv_endtime]').text(adv_endtime);
+                            $('#'+id).children('td[data-target=status]').text(status);
+                            $('#advModal').modal('toggle');
+                            alert('updated');
+                        }
+                    });
+                  });
+
+               //delete record.....
+
+                    $(".delete_area").click(function(){
+                        var delete_id = $(this).attr("delete_id");
+                        // alert(delete_id);
+                        var conf = confirm("are you sure");
+                        if (conf == true) {
+                            $.ajax({
+                                url:"delete_list.php",
+                                type:"post",
+                                data:{
+                                     mgs:'delete',
+                                    delete_id:delete_id
+                                },
+                                success:function(){
+                                // alert("Deleted Record");
+                                location.reload(true);
+                            
+                        }
+                            });
+                        }
+                        
+                });
+        });
+    </script>

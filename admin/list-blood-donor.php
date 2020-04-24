@@ -32,6 +32,7 @@
                         <div class="card">
                             <?php
                                 $query = mysqli_query($conn,"select *from blood_doner ");
+                                $number=1;
                             ?>
                             <div class="card-body">
                                 <h4 class="card-title">List Blood donor</h4>
@@ -62,19 +63,23 @@
                                         </tfoot>
                                         <tbody>
                                            <?php while ($row=mysqli_fetch_assoc($query)) { ?>
-                                            <tr>
-                                                <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['donor_name'];?></td>        
-                                                <td><?php echo $row['donor_bloodgroup']; ?></td>
-                                                <td><?php echo $row['donor_area']; ?></td>
-                                                <td><?php echo $row['donor_mobile']; ?></td>
-                                                <td><?php echo $row['status']; ?></td>
-                                                <td class="text-nowrap">
+                                            <tr id="<?php echo $row['id'];?>">
+                                                <td><?php echo $number; ?></td>
+                                                <td data-target="donor_name"><?php echo $row['donor_name'];?></td>
+                                                <td data-target="donor_bloodgroup"><?php echo $row['donor_bloodgroup']; ?></td>
+                                                <td data-target="donor_area"><?php echo $row['donor_area']; ?></td>
+                                                <td data-target="donor_mobile"><?php echo $row['donor_mobile']; ?></td>
+                                                <td data-target="status"><?php echo $row['status']; ?></td>
+                                                 <td>
+                                                    <button type="submit" data-role="update" data-id="<?php echo $row['id']?>"  class="btn btn-primary edit_area">Edit</button>
+                                                    <button type="submit"  delete_id="<?php echo $row['id']?>"  class="btn btn-danger delete_area">Delete</button>
+                                                </td>
+                                                <!-- <td class="text-nowrap">
                                                     <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                                     <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
-                                                </td>                                                                                      
+                                                </td>  -->                                                                                     
                                             </tr>
-                                           <?php }?>
+                                           <?php $number++; }?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -88,64 +93,7 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <div class="right-sidebar">
-                    <div class="slimscrollright">
-                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                        <div class="r-panel-body">
-                            <ul id="themecolors" class="m-t-20">
-                                <li><b>With Light sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                                <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                            </ul>
-                            <ul class="m-t-20 chatonline">
-                                <li><b>Chat option</b></li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
-            </div>
-            <!-- ============================================================== -->
+                
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
@@ -166,6 +114,53 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white" id="exampleModalLabel">Edit / Update Area. </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form enctype="multipart/form-data">
+                               
+                                <div class="form-group">
+                                    <label>Donor Name</label>
+                                    <input type="text" class="form-control" name="" id="donor_name" >
+                                </div>
+                                 <div class="form-group">
+                                    <label>Donor Blood Group</label>
+                                    <input type="text" class="form-control" name="" id="donor_bloodgroup" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Donor Area</label>
+                                    <input type="text" class="form-control" name="" id="donor_area" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Donor Mobile</label>
+                                    <input type="text" class="form-control" name="" id="donor_mobile" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Donor Status</label>
+                                    <input type="text" class="form-control" name="" id="status" >
+                                </div>
+                                
+                                    <input type="hidden" id="userId">
+                                    
+                            
+                        </div>
+                        <div class="modal-footer">                            
+                            <button type="submit" name="" id="save" class="btn btn-primary">Update</button>
+                            <button type="submit" name="cancel" class="btn btn-danger" data-dismiss="modal">Close</button>
+                           <!--  <input type="hidden" name="" id="hidden_id"> -->
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
     <?php include('include/footer.php');?>
     <!-- end - This is for export functionality only -->
     <script>
@@ -219,6 +214,91 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-</body>
 
-</html>
+<script>
+    $(document).ready(function(){
+        // alert('ajax');
+        $(document).on('click','button[data-role=update]',function(){
+            // alert($(this).data('id'));
+            // append values in input fields
+
+            var id = $(this).data('id');
+            var donor_name = $('#'+id).children('td[data-target=donor_name]').text();
+            var donor_bloodgroup = $('#'+id).children('td[data-target=donor_bloodgroup]').text();
+            var donor_area = $('#'+id).children('td[data-target=donor_area]').text();
+            var donor_mobile = $('#'+id).children('td[data-target=donor_mobile]').text();
+            var status = $('#'+id).children('td[data-target=status]').text();
+
+            $('#donor_name').val(donor_name);
+            $('#donor_bloodgroup').val(donor_bloodgroup);
+            $('#donor_area').val(donor_area);
+            $('#donor_mobile').val(donor_mobile);
+            $('#status').val(status);
+            $('#userId').val(id);
+            $('#myModal').modal('toggle');
+        });
+
+        // now create event to get data from  fields and updated in database
+
+      $('#save').click(function(){
+        var id = $('#userId').val();
+        var donor_name = $('#donor_name').val();
+        var donor_bloodgroup =$('#donor_bloodgroup').val();
+        var donor_area = $('#donor_area').val();
+        var donor_mobile =$('#donor_mobile').val();
+        var status =$('#status').val();
+
+        $.ajax({
+            url     :"donor_update.php",
+            method  :"POST",
+            data    :{
+                mgs:'update',
+                donor_name:donor_name,
+                donor_bloodgroup:donor_bloodgroup,
+                donor_area:donor_area,
+                donor_mobile:donor_mobile,
+                status:status,
+                id:id
+            },
+            success:function(response){
+                
+                //now update user record in table
+
+                $('#'+id).children('td[data-target=donor_name]').text(donor_name);
+                $('#'+id).children('td[data-target=donor_bloodgroup]').text(donor_bloodgroup);
+                $('#'+id).children('td[data-target=donor_area]').text(donor_area);
+                $('#'+id).children('td[data-target=donor_mobile]').text(donor_mobile);
+                $('#'+id).children('td[data-target=status]').text(status);
+                $('#myModal').modal('toggle');
+            }
+        });
+      });
+
+        
+
+
+        //delete record.....
+
+        $(".delete_area").click(function(){
+            var delete_id = $(this).attr("delete_id");
+            // alert(delete_id);
+            var conf = confirm("are you sure");
+            if (conf == true) {
+                $.ajax({
+                    url:"delete_list.php",
+                    type:"post",
+                    data:{
+                         mgs:'delete',
+                        delete_id:delete_id
+                    },
+                    success:function(){
+                    // alert("Deleted Record");
+                    location.reload(true);
+                
+            }
+                });
+            }
+            
+    });
+  });
+</script>

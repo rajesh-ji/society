@@ -1,6 +1,5 @@
-<?php include('include/header.php');
+<?php include('include/header.php'); ?>
 
-?>
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
@@ -13,10 +12,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">List Event</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">List Pages</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">List Event</li>
+                            <li class="breadcrumb-item active">List Pages</li>
                         </ol>
                     </div>
                    
@@ -31,55 +30,46 @@
                     <div class="col-12">
                         <div class="card">
                             <?php
-                                $query = mysqli_query($conn,"select *from event ");
+                                $query = mysqli_query($conn,"select *from pages ");
                                 $number =1;
                             ?>
                             <div class="card-body">
-                                <h4 class="card-title">List Event</h4>
+                                <h4 class="card-title">List Pages</h4>
                                 <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
                                 <div class="table-responsive m-t-40">
                                     <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr>
                                                 <th>S.No</th>
-                                                <th>Name</th>
-                                                <th>Image</th>
-                                                <th>Area</th>
-                                                <th>Status</th>
-                                                <th>Start Date </th>
-                                                <th>End Date</th>
-                                                <th>Created_by</th>
-                                                <th>Action</th>                                                
+                                                <th>Page Name</th>
+                                                <th>Parent Name</th>
+                                                <th>Status</th>                                                
+                                                <th>Action</th>
+                                               
                                             </tr>
                                         </thead>
                                         <tfoot>
                                             <tr>
                                                 <th>S.No</th>
-                                                <th>Name</th>
-                                                <th>Image</th>
-                                                <th>Area</th>
-                                                <th>Status</th>
-                                                <th>Start Date </th>
-                                                <th>End Date</th>
-                                                <th>Created_by</th>
+                                                <th>Page Name</th>
+                                                <th>Parent Name</th>
+                                                <th>Status</th>                                                
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                           <?php while ($row=mysqli_fetch_assoc($query)) { ?>
+                                           <?php while ($row=mysqli_fetch_assoc($query)) { 
+                                            ?>
                                             <tr id="<?php echo $row['id'];?>">
                                                 <td><?php echo $number; ?></td>
-                                                <td data-target="event_name"><?php echo $row['event_name'];?></td> 
-                                                <td data-target="event_image"><img src="images/<?php echo $row['event_image'] ?>"  Width="30px" height="30px"></td>       
-                                                <td data-target="event_showarea"><?php echo $row['event_showarea']; ?></td>
-                                                <td data-target="status"><?php echo $row['status']; ?></td>
-                                                <td data-target="event_startdate"><?php echo $row['event_startdate']; ?></td>
-                                                <td data-target="event_enddate"><?php echo $row['event_enddate']; ?></td>
-                                                <td><?php echo $row['created_by']; ?></td>
-                                                 <td>
-                                                    <button type="submit" data-role="update" data-id="<?php echo $row['id']?>"  class="btn btn-primary edit_area" style="width: 40%;">Edit</button>
-                                                    <button type="submit"  delete_id="<?php echo $row['id']?>"  class="btn btn-danger delete_area" style="width: 56%;">Delete</button>
-                                                </td>                                                                                          
+                                                <td data-target="page_name"><?php echo $row['page_name'];?></td>
+                                                <td data-target="selectpage"><?php echo $row['selectpage'];?></td>
+                                                <td data-target="status"><?php echo $row['status'];?></td>
+                                                <td>
+                                                    <button type="submit" data-role="update" data-id="<?php echo $row['id']?>"  class="btn btn-primary edit_area">Edit</button>
+                                                    <button type="submit"  delete_id="<?php echo $row['id']?>"  class="btn btn-danger delete_area">Delete</button>
+                                                </td>
+                                                <!-- <td><input type="hidden" name="" id="hidden_id"></td> -->
                                             </tr>
                                            <?php $number++; }?>
                                         </tbody>
@@ -91,17 +81,10 @@
                        
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-               
-                <!-- ============================================================== -->
+              
             </div>
             <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
+           
             <footer class="footer"> © 2017 Material Pro Admin by wrappixel.com </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -117,7 +100,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header bg-primary">
@@ -130,35 +113,19 @@
                             <form enctype="multipart/form-data">
                                
                                 <div class="form-group">
-                                    <label>Event Name</label>
-                                    <input type="text" class="form-control" name="" id="event_name" >
+                                    <label>Page Name</label>
+                                    <input type="text" class="form-control" name="" id="page_name" >
                                 </div>
-                                 <div class="form-group">
-                                    <label>Image upload</label>
-                                    <input type="file" class="form-control" name="event_image" id="event_image" aria-describedby="fileHelp">
-                                    <span class="user_uploaded_image"></span>
-                                </div>
-                                 <div class="form-group">
-                                    <label>Event Show Area</label>
-                                    <input type="text" class="form-control" name="" id="event_showarea" >
-                                </div>
-                                 <div class="form-group">
-                                    <label>Event Start Date</label>
-                                    <input type="date" class="form-control" name="" id="event_startdate" >
-                                </div>
-                                 <div class="form-group">
-                                    <label>Event End Date</label>
-                                    <input type="date" class="form-control" name="" id="event_enddate" >
+                                <div class="form-group">
+                                    <label>Parent Name</label>
+                                    <input type="text" class="form-control" name="" id="selectpage" >
                                 </div>
                                  <div class="form-group">
                                     <label>Status</label>
                                     <input type="text" class="form-control" name="" id="status" >
                                 </div>
-                                <!--  <div class="form-group">
-                                    <label>Created By</label>
-                                    <input type="text" class="form-control" name="" id="created_by" >
-                                </div> -->
-                                    <input type="hidden" id="userId"  >
+                                
+                                    <input type="hidden" id="userId">
                                     
                             
                         </div>
@@ -234,18 +201,12 @@
             // append values in input fields
 
             var id = $(this).data('id');
-            var event_name = $('#'+id).children('td[data-target=event_name]').text();
-            var event_image = $('#'+id).children('td[data-target=event_image]').text();
-            var event_showarea = $('#'+id).children('td[data-target=event_showarea]').text();
-            var event_startdate = $('#'+id).children('td[data-target=event_startdate]').text();
-            var event_enddate = $('#'+id).children('td[data-target=event_enddate]').text();
+            var page_name = $('#'+id).children('td[data-target=page_name]').text();
+            var selectpage = $('#'+id).children('td[data-target=selectpage]').text();
             var status = $('#'+id).children('td[data-target=status]').text();
 
-            $('#event_name').val(event_name);
-            $('#event_image').val(event_image);
-            $('#event_showarea').val(event_showarea);
-            $('#event_startdate').val(event_startdate);
-            $('#event_enddate').val(event_enddate);
+            $('#page_name').val(page_name);
+            $('#selectpage').val(selectpage);
             $('#status').val(status);
             $('#userId').val(id);
             $('#myModal').modal('toggle');
@@ -255,23 +216,17 @@
 
       $('#save').click(function(){
         var id = $('#userId').val();
-        var event_name = $('#event_name').val();
-        var event_image =$('#event_image').val();
-        var event_showarea = $('#event_showarea').val();
-        var event_startdate =$('#event_startdate').val();
-        var event_enddate =$('#event_enddate').val();
-        var status =$('#status').val();
-
+        var page_name = $('#page_name').val();
+        var selectpage =$('#selectpage').val();
+        var status = $('#status').val();
+      
         $.ajax({
-            url     :"event_update.php",
+            url     :"pages_update.php",
             method  :"POST",
             data    :{
                 mgs:'update',
-                event_name:event_name,
-                event_image:event_image,
-                event_showarea:event_showarea,
-                event_startdate:event_startdate,
-                event_enddate:event_enddate,
+                page_name:page_name,
+                selectpage:selectpage,
                 status:status,
                 id:id
             },
@@ -279,11 +234,8 @@
                 
                 //now update user record in table
 
-                $('#'+id).children('td[data-target=event_name]').text(event_name);
-                $('#'+id).children('td[data-target=event_image]').text(event_image);
-                $('#'+id).children('td[data-target=event_showarea]').text(event_showarea);
-                $('#'+id).children('td[data-target=event_startdate]').text(event_startdate);
-                $('#'+id).children('td[data-target=event_enddate]').text(event_enddate);
+                $('#'+id).children('td[data-target=page_name]').text(page_name);
+                $('#'+id).children('td[data-target=selectpage]').text(selectpage);
                 $('#'+id).children('td[data-target=status]').text(status);
                 $('#myModal').modal('toggle');
             }

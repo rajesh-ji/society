@@ -1,14 +1,15 @@
 <?php
     if(isset($_POST['submit'])){
-        session_start();
-        include('config.php');
+        
+        include('include/config.php');
         // echo "<script>alert('submit called');</script>";
         extract($_POST);
-        print_r($_POST);
+       print_r($_POST);
        // die;
+        $sql = "select *  from admin where username = '$username' and status ='1'";
        
         
-        $result = mysqli_query($conn, "select *  from users where username = '$username' and role_id =  '1'");
+        $result = mysqli_query($conn, "select *  from admin where username = '$username' and status ='1'");
        
        
         if($result){
@@ -18,11 +19,13 @@
                
           $_SESSION['login_id'] = $rd['role_id'];
           $_SESSION['user_id'] = $rd['id'];
-          echo $_SESSION['login_id'];
-          echo $_SESSION['user_id'];
-
-               header('Location: admin.php');
-            
+        //   echo $_SESSION['login_id'];
+        //   echo $_SESSION['user_id'];
+             
+               header('Location: index.php');
+            die;
+            }else{
+                echo "Password missmatch !";
             }
             
         }

@@ -162,7 +162,14 @@
                             <div class="row">
                      
                                 <div class="col p-r-0 align-self-center">
-                                    <h2 class="font-light m-b-0">1795</h2>
+                                    <h2 class="font-light m-b-0">
+                                    <?php
+                                    $qt = mysqli_query($conn,"SELECT count(*) as abc from blog");
+                                    $row = mysqli_fetch_assoc($qt);
+                                    $record = $row['abc'];
+                                    echo $record;
+                                    ?>
+                                    </h2>
                                     <h6 class="text-muted">Today Blogs</h6></div>
                      
                                <!--  <div class="col text-right ">
@@ -193,6 +200,10 @@
                 <div class="row">
                      <div class="col-lg-4">
                         <div class="card">
+                            <?php 
+                                        $q= "select * from tbl_user limit 5";
+                                        $q1 = mysqli_query($conn,$q);
+                                       ?>
                             <div class="card-body">
                             <button type="button" class="btn btn-success" style="float:right;">View All</button>
                                 <h4 class="card-title">Recent Add Contacts</h4>
@@ -206,34 +217,15 @@
                                             </tr>
                                         </thead>
                                        <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
-                                                <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
+                                            <?php while($row=mysqli_fetch_assoc($q1)){?>
+                                           <tr>
+                                               <td style="width:50px;"><span class="round"><?php $username = $row['username']; echo substr($username,0,1)?></span></td>
+                                               <td>
                                                
-                                                <td>$3.9K</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50" /></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-success">B</span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
-                                               
-                                                <td>$12.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary">N</span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
-                                               
-                                                <td>$10.9K</td>
-                                            </tr>
-                                            
+                                                <h6><?php echo $row['username'];?></h6></td>       
+                                               <td><span class=""><?php  echo date("d M y g:i A", time()); ?></span></td>
+                                           </tr>  
+                                           <?php } ?> 
                                            
                                         </tbody>
                                     </table>
@@ -243,6 +235,10 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="card">
+                            <?php 
+                                        $q= "select * from event limit 5";
+                                        $q1 = mysqli_query($conn,$q);
+                                       ?>
                             <div class="card-body">
                             <button type="button" class="btn btn-success" style="float:right;">View All</button>
                                 <h4 class="card-title">Recent Add Event</h4>
@@ -256,34 +252,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
-                                                <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
+                                            <?php while($row=mysqli_fetch_assoc($q1)){?>
+                                           <tr>
+                                               <td style="width:50px;"><span class="round"><?php $event_name = $row['event_name']; echo substr($event_name,0,1)?></span></td>
+                                               <td>
                                                
-                                                <td>$3.9K</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50" /></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-success">B</span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
-                                               
-                                                <td>$12.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary">N</span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
-                                               
-                                                <td>$10.9K</td>
-                                            </tr>
-                                            
+                                                <h6><?php echo $row['event_name'];?></h6></td>       
+                                               <td><span class=""><?php  echo date("d M y g:i A", time()); ?></span></td>
+                                           </tr>  
+                                           <?php } ?> 
                                            
                                         </tbody>
                                     </table>
@@ -293,6 +270,10 @@
                     </div>
                     <div class="col-lg-4">
                       <div class="card">
+                         <?php 
+                                        $q= "select * from event where `status` = '1' limit 5";
+                                        $q1 = mysqli_query($conn,$q);
+                                       ?>
                             <div class="card-body">
                             <button type="button" class="btn btn-success" style="float:right;">View All</button>
                                 <h4 class="card-title">Recent Coming Event</h4>
@@ -306,33 +287,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td style="width:50px;"><span class="round">S</span></td>
-                                                <td>
-                                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
+                                            <?php while($row=mysqli_fetch_assoc($q1)){?>
+                                           <tr>
+                                               <td style="width:50px;"><span class="round"><?php $event_name = $row['event_name']; echo substr($event_name,0,1)?></span></td>
+                                               <td>
                                                
-                                                <td>$3.9K</td>
-                                            </tr>
-                                            <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50" /></span></td>
-                                                <td>
-                                                    <h6>Andrew</h6><small class="text-muted">Project Manager</small></td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-success">B</span></td>
-                                                <td>
-                                                    <h6>Bhavesh patel</h6><small class="text-muted">Developer</small></td>
-                                               
-                                                <td>$12.9K</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span class="round round-primary">N</span></td>
-                                                <td>
-                                                    <h6>Nirav Joshi</h6><small class="text-muted">Frontend Eng</small></td>
-                                               
-                                                <td>$10.9K</td>
-                                            </tr>
+                                                <h6><?php echo $row['event_name'];?></h6></td>       
+                                               <td><span class=""><?php  echo date("d M y g:i A", time()); ?></span></td>
+                                           </tr>  
+                                           <?php } ?> 
                                             
                                            
                                         </tbody>

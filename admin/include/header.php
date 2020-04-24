@@ -1,4 +1,13 @@
-<?php include('include/config.php'); ?>
+<?php include('include/config.php');
+if(!isset($_SESSION['login_id'])){
+    header('Location: login.php');
+}
+ $login_id = $_SESSION['login_id'];
+ $user_id = $_SESSION['user_id']; 
+
+ $query = mysqli_query($conn, "select * from admin where id = '$user_id'");
+$rd = mysqli_fetch_assoc($query);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +33,10 @@
     <link href="css/style.css" rel="stylesheet">
     
     <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -80,7 +93,7 @@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
                                     <!-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li> -->
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -99,7 +112,7 @@
             
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe</a>
                         <div class="dropdown-menu animated flipInY"> <a href="#" class="dropdown-item"><i class="ti-user"></i> My Profile</a> <a href="#" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>  
-                            <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a> </div>
+                            <a href="logout.php" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a> </div>
                     </div>
                 </div>
                 <nav class="sidebar-nav">
@@ -123,16 +136,16 @@
                         </li>
                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Advertisement</span></a>
                              <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Create  Advertisement Pages</a></li>
-                                <li><a href="#">List Advertisement pages</a></li>
-                                <li><a href="create-adv.php">Creat Advertisement</a></li>
-                                <li><a href="list-adv.php">List All Advertisements</a></li>                                
+                                <li><a href="create_ad_page.php">Create  Ad Pages</a></li>
+                                <li><a href="list_ad_page.php">List Ad pages</a></li>
+                                <li><a href="create-adv.php">Creat Ad</a></li>
+                                <li><a href="list-adv.php">List All Ad</a></li>                                
                             </ul>
                         </li>
                         <li> <a href="#" class="has-arrow waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Pages</span></a> 
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Create Pages</a></li>
-                                <li><a href="#">List Pages</a></li>      
+                                <li><a href="create_pages.php">Create Pages</a></li>
+                                <li><a href="list-pages.php">List Pages</a></li>      
                             </ul>                       
                         </li>
                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">Events</span></a>
@@ -167,10 +180,10 @@
                                 <li><a href="#">List Matrimonial</a></li>      
                             </ul>  
                             </li>
-                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Contacts</span></a>
+                         <li> <a href="#" class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-widgets"></i><span class="hide-menu">Blogs</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="#">Creat Blogs</a></li>
-                                <li><a href="#">List Blogs</a></li>      
+                                <li><a href="create_blogs.php">Create Blogs</a></li>
+                                <li><a href="list_blogs.php">List Blogs</a></li>      
                             </ul>  
                             </li>
                     </ul>
@@ -179,10 +192,10 @@
             </div>
             
             
-            <div class="sidebar-footer">
+            <!-- <div class="sidebar-footer">
             <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
             <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-            <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+            <a href="logout.php" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div> -->
             
         </aside>
        
